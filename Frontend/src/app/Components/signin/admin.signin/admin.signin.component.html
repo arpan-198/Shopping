@@ -1,0 +1,47 @@
+<div class="bodydiv">
+    <div class="containerDiv">
+        <div class="head">
+            <p>admin login</p><hr>
+        </div>
+        <div class="formDiv">
+            <form [formGroup]="_admin_Login_Form">
+                <div>
+                    <label for="id">Enter ID : </label><br>
+                    <input type="text" id="id" formControlName="_id" required placeholder="Admin Id">
+                    <div *ngIf="id.errors">
+                        <small *ngIf="id.errors?.required && id.touched" class="text-danger">
+                            Id is required
+                        </small>
+                    </div>
+                </div><br>
+                <div>
+                    <label for="email">Enter Registered Email : </label><br>
+                    <input type="email"  id="email" formControlName="_email" required placeholder="Email Id">
+                    <div *ngIf="email.errors">
+                        <small *ngIf="email.errors?.required && email.touched" class="text-danger">
+                            Email is required
+                        </small>
+                    </div>
+                </div><br>
+                <div>
+                    <label for="pass">Enter Password : </label><br>
+                    <input type="password"  id="pass" formControlName="_password" required placeholder="Admin Password">
+                    <div *ngIf="pwd.errors">
+                        <small *ngIf="pwd.errors?.required && pwd.touched" class="text-danger">
+                            Password is required
+                        </small>
+                    </div>
+                </div><br>
+              
+                <div class="buttonDiv">
+                    <input type="submit" class="btn" value="LogIn" [disabled]="_admin_Login_Form.invalid" (click)="checkLogin()">
+                    <input type="reset" class="btn" value="Reset">
+                </div>
+                <div class="forget">
+                    <p>forget <a [routerLink]="['../forget']">password</a>?</p>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>

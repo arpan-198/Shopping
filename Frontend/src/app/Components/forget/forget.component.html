@@ -1,0 +1,49 @@
+<div class="bodydiv">
+    <div class="containerDiv">
+        <div class="head">
+            <p>Forget Password</p><hr>
+        </div>
+        <div class="formDiv">
+            <form *ngIf="!isVarified">
+             
+                <div>
+                    <label for="email">Enter Registered Email : </label><br>
+                    <input type="email"  id="email" name="email" #email="ngModel"  [(ngModel)]="email_Id" required placeholder="Email Id">
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <small *ngIf="email.errors.required" class="text-danger">
+                            Email is required
+                        </small>
+                    </div>
+                </div><br>
+                <div>
+                    <input type="button" class="btn" value="Submit" [disabled]="email.errors" (click)="submitEmail()">
+                </div>
+                
+            </form><br>
+
+            <form *ngIf="isVarified">
+                <hr>
+                {{count}} <small>120 sec Validate</small>
+                <div>
+                    <label for="otp">Enter OTP : </label><br>
+                    <input type="password" name="otp" #otp="ngModel"  [(ngModel)]="A_OTP" id="otp" required placeholder="OTP">
+                    <div *ngIf="otp.invalid && (otp.dirty || otp.touched)">
+                        <small *ngIf="otp.errors.required" class="text-danger">
+                            OTP is required
+                        </small>
+                    </div>
+                </div><br>
+
+                <div class="buttonDiv">
+                    <div>
+                        <input type="button" class="btn" value="Check OTP"  (click)="submitOTP()">
+                    </div>
+                    <p><a [routerLink]="" (click)="resendOTP()">resend otp?</a></p>
+                </div>
+                
+              
+            </form>
+        </div>
+        
+    </div>
+</div>

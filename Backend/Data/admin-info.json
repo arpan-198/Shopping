@@ -1,0 +1,23 @@
+
+    {
+        
+        "name" : "Ramesh Kumar",
+        "dob" : "12/04/1998",
+        "des" :"CEO",
+        "address" : {
+            "parmanent" : {
+                "pAddr":"Railway Colony, Andheri East, Mumbai",
+                "pStreet_name":"Railway road",
+                "pDistrict":"Mumbai",
+                "pPin":"400050",
+                "pState":"Maharashtra"
+            },
+            "current" : {
+                "cAddr" :  "Bairam Naupada, Bandra East, Mumbai",
+                "cStreet_name":"Bairam road",
+                "cDistrict":"Mumbai",
+                "cPin":"400053",
+                "cState":"Maharashtra"
+            }
+        }
+    }

@@ -1,0 +1,30 @@
+<div id="div" class="row p-3 navbar navbar-expand-lg navbar-light bg-light">
+    <div class="col form-inline">
+      <button class="btn bt mr-sm-4" (click)="openSideNav()"><i class="fa fa-bars"></i> Menu</button>
+
+      <h4 class="mr-sm-4">Welcome In Shopping</h4>
+  
+      <form class="form-inline">
+        <input id="searchBox" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn bt btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+    
+      <ng-template [ngIf]="!isLogin">
+          <button class="btn bt mr-sm-4 float-right" (click)="login()" aria-label="Example icon button with a menu icon">
+            <i class="fa fa-user"></i>
+            Login
+          </button>
+      </ng-template>
+
+       <ng-template [ngIf]="isLogin">
+          <button class="btn bt mr-sm-4" aria-label="Example icon button with a menu icon">
+            <i class="fa fa-user"></i>
+            Logout
+          </button>
+      </ng-template>
+      <button class="btn bt float-right" aria-label="Example icon button with a menu icon">
+        <i class="fas fa-shopping-cart"></i>
+      </button>
+</div>
+      

@@ -1,0 +1,26 @@
+.bt{
+  width : 100px;
+}
+
+@media screen and (max-width: 600px) {
+  h4 {
+    font-size: smaller;
+    margin:0%;
+    margin-right: 4px;
+  }
+  .bt{
+    width: 50px;
+    padding: 0px;
+    margin-right: 2px;
+    font-size: xx-small;
+  }
+  #searchBox{
+    width: 100px;
+    height: 20px;
+    margin-right: 4px;
+    font-size: x-small;
+  }
+  .col{
+    padding: 0%;
+  }
+}

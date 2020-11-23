@@ -1,0 +1,18 @@
+
+<div id="container">
+    <div class="mainheader" [style.margin.px]=10>
+        <main-header (sideNavOpen)="openSideNav($event)"></main-header>
+        <ng-template [ngIf]="open_side_nav">
+            <main-sidenav></main-sidenav>
+        </ng-template>
+    </div>
+    <div class="secondhead" [style.margin.px]=10>
+
+    </div>
+    <div class="body" [style.margin.px]=10>
+
+    </div>
+    <div class="foot">
+        <main-footer></main-footer>
+    </div>
+</div>

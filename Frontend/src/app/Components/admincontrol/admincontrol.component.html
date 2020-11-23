@@ -1,0 +1,19 @@
+<div class="mainAdminstr">
+    <div class="subdiv">
+        <ul id="main">
+            <li><a class="link active" [routerLink]="['profile']">View Profile</a></li>
+            <li><a class="link" [routerLink]="['types']">Add Type</a></li>
+            <li><a class="link" [routerLink]="['seller']">Sellers</a></li>
+            <li><a class="link" [routerLink]="['add']">Add Admin</a></li>
+          </ul>
+        
+          <div *ngIf="isLoggedIn">
+            <input type="button" class="bton" value="Logout" (click)="logoutAdmin()">
+          </div>
+    </div>
+        
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

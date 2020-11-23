@@ -1,0 +1,17 @@
+<!-- <div style="background-color: aquamarine;"> -->
+  <div id="myNav" class="overlay" [style.width.%]="side_Nav_Width">  
+    <a  class="closebtn" (click)="closeNav()">&times;</a>
+    <div class="overlay-content">
+          <a href="#">Hello {{user}}</a><br>
+        <hr/>
+        <ul>
+          <a href='http://localhost:4200/home'>home</a><br/>
+          <a href="#">Orders</a><br/>
+          <a href="#">Your Wishlist</a><br/>
+          <a href="#">service</a><br>
+          <a [routerLink]="['/sell/login']">Seller</a><br>
+          <a [routerLink]="['/admin/login']">Admin</a>
+        </ul>
+      </div>
+      
+</div>

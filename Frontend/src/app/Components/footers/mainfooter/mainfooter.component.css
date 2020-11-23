@@ -1,0 +1,21 @@
+.first{
+    padding: 10px;
+    margin: 0px 10px 0px 10px;
+    background-color: hsla(0, 0%, 0%, 0.439);
+    color: white;
+}
+.boxleft{
+    display: block;
+    text-align: left;
+}
+.boxcenter{
+    display: block;
+    text-align: center;
+}
+
+.second{
+    padding: 10px;
+    margin:0px 10px 0px 10px;
+    background-color: rgba(0, 0, 0, 0.712);
+    color: white;
+}
