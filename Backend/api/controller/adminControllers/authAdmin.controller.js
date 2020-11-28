@@ -43,21 +43,73 @@ exports.adminPostSigninUser=async(req,res)=>{
         }
         else{
              let data={
-            "email":email,
-            "id":id
+            "id" : result._id,
+            "email":email
+            
             };
-            let Token=await jwt.sign(data,process.env.SECRET_KEY_FOR_APP,{ expiresIn:'1200s'});
-            res.status(200).json({
-                message:"Login Successful",
-                id : data.id,
-                email:data.email,
-                token:Token
+            let Token=generateAccessToken(data);
+
+            let refreshToken=jwt.sign(data,process.env.SECRET_KEY_FOR_REFRESH_TOKEN);
+            await user_auths.findByIdAndUpdate({_id : result._id},{refreshToken : refreshToken},(err,result1)=>{
+                if(err) throw err;
+
             })
+            res.status(200).json({
+                "access-token":Token ,
+                "refresh-token" : refreshToken
+            });
 
         }
     });
     
 }
+
+
+let generateAccessToken=(data)=>{
+    return jwt.sign(data,process.env.SECRET_KEY_FOR_ACCESS_TOKEN,{ expiresIn:'12s'});
+}
+
+
+
+
+exports.getToken=async(req,res)=>{
+    const refreshToken=req.body.token;
+    if(refreshToken==null) return res.status(400);
+    
+    await jwt.verify(refreshToken,process.env.SECRET_KEY_FOR_REFRESH_TOKEN,(error,decode)=>{
+        if(error){
+            res.status(500);
+        }
+        else{
+            let id=decode._id;
+            admin_auths.findById({_id : id},(err,result)=>{
+                if(err) return res.status(400);
+                else{
+                    if(refreshToken !== result.refreshToken){
+                       res.status(400);
+                    }
+                    else{
+                        let data={
+                            "email" : result.email,
+                            "_id" : result._id
+                        };
+                        let newAccessToken= generateAccessToken(data);
+                        res.status(200).json({
+                            "access-token" : newAccessToken
+                        })
+                    }
+                   
+                }
+            })
+        }
+        
+    })
+}
+
+
+
+
+
 
 
 exports.adminPostForgetUser=async(req,res)=>{

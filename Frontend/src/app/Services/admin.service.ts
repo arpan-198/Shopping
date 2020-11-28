@@ -6,12 +6,12 @@ import { IAdminAuth } from "../Model/admin.model";
 
 @Injectable()
 export class AdminServices{
-    private _post_adminsigninURL:string = "http://localhost:7000/admin/signin";
-    private _post_adminForgetURL:string = "http://localhost:7000/admin/forget";
-    private _get_adminResendURL:string = "http://localhost:7000/admin/otp/resend";
-    private _delete_adminOTPDelURL:string = "http://localhost:7000/admin/otp/del";
-    private _post_adminOTPVerifyURL:string = "http://localhost:7000/admin/otp/verify";
-    private _put_adminPasswordChangeURL:string = "http://localhost:7000/admin/chng/password";
+    private _post_adminsigninURL:string = "http://localhost:7001/admin/signin";
+    private _post_adminForgetURL:string = "http://localhost:7001/admin/forget";
+    private _get_adminResendURL:string = "http://localhost:7001/admin/otp/resend";
+    private _delete_adminOTPDelURL:string = "http://localhost:7001/admin/otp/del";
+    private _post_adminOTPVerifyURL:string = "http://localhost:7001/admin/otp/verify";
+    private _put_adminPasswordChangeURL:string = "http://localhost:7001/admin/chng/password";
     constructor(private http : HttpClient){}
 
 
@@ -21,7 +21,9 @@ export class AdminServices{
             
         }
         else{
-            alert(errorResponse.error.message);
+            if(errorResponse.error.message){
+                alert(errorResponse.error.message);
+            }
             
         }
         return throwError('There is a Problem with Service');

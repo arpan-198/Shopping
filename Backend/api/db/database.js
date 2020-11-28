@@ -1,16 +1,16 @@
 const mongoose=require('mongoose');
 
 
-const login_info=require('../../Schemas/user/userCollection.schema');
-const typeOfProductCollection=require('../../Schemas/typeOfProductCollection.schema');
-const productdetail=require('../../Schemas/product_details.schema');
+// const login_info=require('../../Schemas/user/userCollection.schema');
+// const typeOfProductCollection=require('../../Schemas/typeOfProductCollection.schema');
+// const productdetail=require('../../Schemas/product_details.schema');
 const admin_auth = require('../../Schemas/admin/admin_auth.schema');
 const admin_info = require('../../Schemas/admin/admin_info.schema');
 // const admin_info=require('../../Schemas/seller/seller_login.schema');
 
 const aAuthData=require('../../Data/admin-auth.json');
 const aInfoData=require('../../Data/admin-info.json');
-const md5 = require('MD5');
+const md5 = require('md5');
 
 
 
@@ -22,10 +22,10 @@ mongoose.connect('mongodb://localhost/Shopping', {useNewUrlParser: true,useUnifi
     console.log(err);
 })
 
-    const user_logins=mongoose.model('user_logins',login_info);
+    // const user_logins=mongoose.model('user_logins',login_info);
     // module.exports=user_login;
 
-    const product_details=mongoose.model('product_details',productdetail);
+    // const product_details=mongoose.model('product_details',productdetail);
     // module.exports=product_detail;
     const admin_auths=mongoose.model('admin_auths',admin_auth);
 
@@ -33,7 +33,7 @@ mongoose.connect('mongodb://localhost/Shopping', {useNewUrlParser: true,useUnifi
     
 
     (()=>{
-        console.log(aAuthData);
+        // console.log(aAuthData);
         admin_auths.find({id : aAuthData.id},{},(err,result)=>{
             if(err){
                 console.log(err);
@@ -66,8 +66,8 @@ mongoose.connect('mongodb://localhost/Shopping', {useNewUrlParser: true,useUnifi
     // module.exports=admin_info;
 
     module.exports={
-        user_logins,
-        product_details,
+        // user_logins,
+        // product_details,
         admin_auths,
         admin_infos
         // seller_logins

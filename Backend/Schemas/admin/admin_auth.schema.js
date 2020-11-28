@@ -33,6 +33,9 @@ const sch={
         type:String,
         required:[true,"must be fill"],
         validate : validateLength(32,40)
+    },
+    refreshToken : {
+      type : String
     }
 }
 
